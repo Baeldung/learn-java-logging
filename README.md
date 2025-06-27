@@ -1,5 +1,5 @@
-# Learn Java Logging - Logging Fundamentals
+# Learn Java Logging - Log4j2
 
-This is the codebase for Module "Logging Fundamentals".
+This is the codebase for Module "Log4j2".
 
 ======
