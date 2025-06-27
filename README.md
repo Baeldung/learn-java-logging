@@ -1,5 +1,5 @@
-# Learn Java Logging - Logback
+# Learn Java Logging - Logging Facade
 
-This is the codebase for Module "Logback".
+This is the codebase for Module "Logging Facade".
 
 ======
