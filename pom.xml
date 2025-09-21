@@ -12,5 +12,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>introduction-to-log4j2-start</module>
+        <module>introduction-to-log4j2-end</module>
     </modules>
 </project>
