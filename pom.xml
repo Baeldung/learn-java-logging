@@ -12,5 +12,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>introduction-to-jul-start</module>
+        <module>introduction-to-jul-end</module>
     </modules>
 </project>
