@@ -1,0 +1,52 @@
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1.} - %m%n"/>
+        </Console>
+
+        <Console name="ThresholdFilterConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1.} - %m%n"/>
+            <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+        </Console>
+
+        <Console name="BurstFilterConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1.} - %m%n"/>
+            <BurstFilter level="INFO" rate="5" maxBurst="10"/>
+        </Console>
+
+        <Console name="RegexFilterConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1.} - %m%n"/>
+            <RegexFilter regex=".*(?i)password.*" onMatch="DENY" onMismatch="ACCEPT"/>
+        </Console>
+
+        <Console name="CombinedFiltersConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1.} - %m%n"/>
+            <Filters>
+                <ThresholdFilter level="WARN" onMatch="NEUTRAL" onMismatch="DENY"/>
+                <RegexFilter regex=".*\b4[0-9]{12}(?:[0-9]{3})?\b.*" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <RegexFilter regex=".*\b5[1-5][0-9]{14}\b.*" onMatch="DENY" onMismatch="ACCEPT"/>
+            </Filters>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="Console"/>
+        </Root>
+
+        <Logger name="com.baeldung.ljl.filters.threshold" level="DEBUG" additivity="false">
+            <AppenderRef ref="ThresholdFilterConsole"/>
+        </Logger>
+
+        <Logger name="com.baeldung.ljl.filters.burst" level="DEBUG" additivity="false">
+            <AppenderRef ref="BurstFilterConsole"/>
+        </Logger>
+
+        <Logger name="com.baeldung.ljl.filters.regex" level="DEBUG" additivity="false">
+            <AppenderRef ref="RegexFilterConsole"/>
+        </Logger>
+
+        <Logger name="com.baeldung.ljl.filters.combined" level="DEBUG" additivity="false">
+            <AppenderRef ref="CombinedFiltersConsole"/>
+        </Logger>
+    </Loggers>
+</Configuration>

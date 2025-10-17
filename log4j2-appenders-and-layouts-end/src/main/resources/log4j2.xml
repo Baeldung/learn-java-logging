@@ -1,0 +1,39 @@
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %c - %m%n"/>
+        </Console>
+        <File name="LogFile" fileName="logs/app.log" append="true">
+        </File>
+        <RollingFile name="RollingFile"
+                     fileName="rolling-logs/app.log"
+                     filePattern="rolling-logs/app-%i.log">
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10KB"/>
+            </Policies>
+        </RollingFile>
+        <File name="JsonLogFile" fileName="json-logs/app.json" append="true">
+            <JSONTemplateLayout/>
+        </File>
+        <Console name="ConsoleWithMDC" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %c [%X{userName} - %mdc{userId}] - %m%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+        </Root>
+        <Logger name="LoggerWithFileAppender" level="INFO" additivity="false">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name="LoggerWithRollingFileAppender" level="INFO" additivity="false">
+            <AppenderRef ref="RollingFile"/>
+        </Logger>
+        <Logger name="LoggerWithJsonFileAppender" level="INFO" additivity="false">
+            <AppenderRef ref="JsonLogFile"/>
+        </Logger>
+        <Logger name="LoggerWithMDC" level="INFO" additivity="false">
+            <AppenderRef ref="ConsoleWithMDC"/>
+        </Logger>
+    </Loggers>
+</Configuration>

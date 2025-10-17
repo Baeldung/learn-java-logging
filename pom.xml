@@ -14,5 +14,9 @@
     <modules>
         <module>introduction-to-log4j2-start</module>
         <module>introduction-to-log4j2-end</module>
+        <module>log4j2-appenders-and-layouts-start</module>
+        <module>log4j2-appenders-and-layouts-end</module>
+        <module>log4j2-filters-start</module>
+        <module>log4j2-filters-end</module>
     </modules>
 </project>
