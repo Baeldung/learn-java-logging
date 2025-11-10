@@ -12,5 +12,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>getting-started-with-logback-start</module>
+        <module>getting-started-with-logback-end</module>
     </modules>
 </project>
