@@ -14,5 +14,7 @@
     <modules>
         <module>introduction-to-jul-start</module>
         <module>introduction-to-jul-end</module>
+        <module>configuring-and-customizing-jul-start</module>
+        <module>configuring-and-customizing-jul-end</module>
     </modules>
 </project>
