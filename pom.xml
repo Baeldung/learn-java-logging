@@ -18,5 +18,7 @@
         <module>log4j2-appenders-and-layouts-end</module>
         <module>log4j2-filters-start</module>
         <module>log4j2-filters-end</module>
+        <module>log4j2-config-start</module>
+        <module>log4j2-config-end</module>
     </modules>
 </project>
