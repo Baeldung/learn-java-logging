@@ -12,5 +12,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>slf4j-start</module>
+        <module>slf4j-end</module>
     </modules>
 </project>
