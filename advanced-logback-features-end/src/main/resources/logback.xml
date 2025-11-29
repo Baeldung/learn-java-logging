@@ -1,0 +1,32 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} [userId: %X{userId}] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CRITICAL_ALERTS_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/critical-alerts.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} [userId: %X{userId}] - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+            <evaluator class="ch.qos.logback.classic.boolex.OnMarkerEvaluator">
+                <marker>CRITICAL_ALERT</marker>
+            </evaluator>
+            <OnMatch>ACCEPT</OnMatch>
+            <OnMismatch>DENY</OnMismatch>
+        </filter>
+    </appender>
+
+    <appender name="JSON_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/application.json</file>
+        <encoder class="ch.qos.logback.classic.encoder.JsonEncoder"/>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="CRITICAL_ALERTS_FILE"/>
+        <appender-ref ref="JSON_FILE"/>
+    </root>
+</configuration>
