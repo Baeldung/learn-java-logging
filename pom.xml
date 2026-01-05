@@ -14,6 +14,8 @@
     <modules>
         <module>getting-started-with-logback-start</module>
         <module>getting-started-with-logback-end</module>
+        <module>logback-configuration-start</module>
+        <module>logback-configuration-end</module>
         <module>advanced-logback-features-start</module>
         <module>advanced-logback-features-end</module>
     </modules>
