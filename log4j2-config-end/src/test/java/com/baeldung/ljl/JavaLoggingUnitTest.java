@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
 
 class JavaLoggingUnitTest {
+
     private static final Logger logger = LogManager.getLogger(JavaLoggingUnitTest.class);
 
     @Test

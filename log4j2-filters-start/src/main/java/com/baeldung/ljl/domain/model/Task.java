@@ -3,7 +3,7 @@ package com.baeldung.ljl.domain.model;
 import java.time.LocalDate;
 
 public class Task {
-    
+
     private String code;
 
     private String name;

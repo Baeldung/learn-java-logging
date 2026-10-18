@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.UUID;
 
 class JavaLoggingUnitTest {
+
     private static final Logger logger = LogManager.getLogger(JavaLoggingUnitTest.class);
 
     @Test
@@ -24,7 +25,7 @@ class JavaLoggingUnitTest {
     @Test
     void whenMessagesLoggedUsingLoggerWithRollingFileAppender_thenMessagesWrittenToFiles() {
         Logger loggerWithRollingFileAppender = LogManager.getLogger("LoggerWithRollingFileAppender");
-        for(int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 1000; i++) {
             logAtAllLevels(loggerWithRollingFileAppender);
         }
     }
@@ -40,9 +41,14 @@ class JavaLoggingUnitTest {
         Logger loggerWithMDC = LogManager.getLogger("LoggerWithMDC");
         loggerWithMDC.info("Initiating withdrawal request");
 
-        ThreadContext.put("userName", "John Doe");
-        ThreadContext.put("userId", UUID.randomUUID().toString());
-        loggerWithMDC.info("Initiating withdrawal request");
+        try {
+            ThreadContext.put("userName", "John Doe");
+            ThreadContext.put("userId", UUID.randomUUID().toString());
+            loggerWithMDC.info("Initiating withdrawal request");
+        } finally {
+            ThreadContext.remove("userName");
+            ThreadContext.remove("userId");
+        }
     }
 
     private void logAtAllLevels(Logger logger) {
