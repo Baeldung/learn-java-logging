@@ -16,7 +16,7 @@ class JavaLoggingUnitTest {
     void setUp() {
         logger.setLevel(Level.INFO);
         stream(Logger.getLogger("").getHandlers())
-            .forEach(handler ->handler.setLevel(Level.INFO));
+            .forEach(handler -> handler.setLevel(Level.INFO));
     }
 
     @Test
@@ -41,7 +41,7 @@ class JavaLoggingUnitTest {
     void givenLoggerOnFineLevel_whenLoggingAtDifferentLevels_thenLogsCorrectly() {
         logger.setLevel(Level.FINEST);
         stream(Logger.getLogger("").getHandlers())
-            .forEach(handler ->handler.setLevel(Level.FINEST));
+            .forEach(handler -> handler.setLevel(Level.FINEST));
 
         logger.severe("Critical issue occurred while processing task.");
         logger.warning("Potential issue detected in task setup.");
